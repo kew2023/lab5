@@ -18,24 +18,30 @@ graph = {'0': ('1', '2', '3')[::-1],
          '3': ('0'),
          '4': ('2')
         }
-
-#depth(graph, '0')
+print('Поиск в глубину')
+depth(graph, '0')
+print('\n')
 
 #алгоритм поиска в ширину
-
-def width(, graph, start):
-    visited.add(start)
-    queue.append(start)
-    
+visited = set()
+queue = []
+def bfs(visited, graph, node):
+    global queue
+    visited.add(node)
+    queue.append(node)
     while queue:
-        s = queue.pop(0) 
-        print (s, end = " ") 
+        start = queue.pop(0)
         
-        for next in graph[s]:
+        for next in graph[start]:
+            print("Предполагаемый путь :",start,next,visited)
             if next not in visited:
+                print("Путь :",start,next,visited)
                 visited.add(next)
                 queue.append(next)
-    
-queue = []
 
-width(visited, graph, '0')
+print('Поиск в ширину')
+bfs(visited, graph, '0')
+
+# Сложность алгоритмов
+# V - колиество вершин, E - количество рёбер
+# временаня сложность обоих алгоритмов O(V + E), т.к. происходит перебор всех вёбер и вершин    
