@@ -25,7 +25,7 @@ print('\n')
 #алгоритм поиска в ширину
 visited = set()
 queue = []
-def bfs(visited, graph, node):
+def width(visited, graph, node):
     global queue
     visited.add(node)
     queue.append(node)
@@ -40,7 +40,7 @@ def bfs(visited, graph, node):
                 queue.append(next)
 
 print('Поиск в ширину')
-bfs(visited, graph, '0')
+width(visited, graph, '0')
 
 # Сложность алгоритмов
 # V - колиество вершин, E - количество рёбер
